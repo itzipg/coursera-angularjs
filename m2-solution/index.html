@@ -22,29 +22,38 @@
       }
     </style>
   </head>
-<body>
+  <script src="angular.min.js"></script>
+  <script src="app.js"></script>
+<body ng-app="ShoppingListCheckOff">
   <div class="container">
   <h1>Shopping List Check Off</h1>
 
   <div class="row">
 
     <!-- To Buy List -->
-    <div class="col-md-6">
+    <div ng-controller="ToBuyShoppingController as toDoCtrl" class="col-md-6">
      <h2>To Buy:</h2>
      <ul>
-       <li>Buy 10 cookies <button class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
-       <li>Buy 10 cookies <button class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
+       <!--process the to-buy list, each element will be shown with a button next
+        to it for removal-->
+       <li ng-repeat="i in toDoCtrl.items">
+         {{i.quantity}} of {{i.name}}
+         <button ng-click="toDoCtrl.buyItem($index);" formtarget=""class="btn btn-default">
+           <span class="glyphicon glyphicon-ok"></span>
+           Bought
+         </button>
+       </li>
      </ul>
-     <div class="emptyMessage">Everything is bought!</div>
+     <div ng-show="toDoCtrl.items.length === 0" class="emptyMessage">Everything is bought!</div>
     </div>
 
     <!-- Already Bought List -->
-    <div class="col-md-6">
+    <div ng-controller="AlreadyBoughtShoppingController as doneCtrl" class="col-md-6">
      <h2>Already Bought:</h2>
      <ul>
-       <li>Bought 10 cookies</li>
+       <li ng-repeat="i in doneCtrl.items">{{i.quantity}} of {{i.name}}</li>
      </ul>
-     <div class="emptyMessage">Nothing bought yet.</div>
+     <div ng-show="doneCtrl.items.length === 0" class="emptyMessage">Nothing bought yet.</div>
     </div>
   </div>
 </div>
