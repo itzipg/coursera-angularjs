@@ -19,7 +19,7 @@ function NarrowItDownController(MenuSearchService) {
 
       promise.then(function (response) {
         menu.found = response;
-        console.log("You may want: ", menu.found);
+        //console.log("You may want: ", menu.found);
       })
       .catch(function (error) {
         console.log(error);
@@ -28,7 +28,7 @@ function NarrowItDownController(MenuSearchService) {
   };
 
   menu.removeItem = function (itemIndex) {
-    console.log("Remove :", itemIndex);
+    //console.log("Remove :", itemIndex);
     menu.found.splice(itemIndex, 1);
   };
 
