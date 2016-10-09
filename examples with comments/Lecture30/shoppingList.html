@@ -1,0 +1,11 @@
+<h3>Title: {{ list.myTitle }}</h3>
+<ol>
+  <li ng-repeat="item in list.items">
+    {{ item.quantity }} of {{ item.name }}
+    <button ng-click="list.badRemove($index);">Bad Remove Item</button>
+    <!--Here is where the real call to the function takes place.
+    The name of the method is onRemove, and 'index' is map to a real value ($index, an internal value of the ng-repeat attibute)-->
+    <button ng-click="list.onRemove({index: $index});">Remove Item</button>
+  </li>
+</ol>
+<div class="error" ng-if="list.cookiesInList()">WARNING! WARNING! COOKIES DETECTED!</div>

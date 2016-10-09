@@ -1,0 +1,9 @@
+
+  <!--The name 'categories' comes from the binding in the component-->
+<ul>
+  <li ng-repeat="item in $ctrl.categories">
+    <a href ui-sref="items({catShortName: item.short_name })">
+      {{ item.name }} ({{ item.short_name }})
+    </a>
+  </li>
+</ul>

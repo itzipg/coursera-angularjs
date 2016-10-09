@@ -46,17 +46,17 @@ function FoundItemsDirective() {
       items:'<foundItems',
       onRemove: '&'
     },
-    controller: FoundItemsDirectiveController,
+    /*controller: FoundItemsDirectiveController,
     controllerAs: 'dirCtrl',
-    bindToController: true
+    bindToController: true*/
   };
 
   return ddo;
 }
+//We can avoid declaring a directive controller
+/*function FoundItemsDirectiveController() {
 
-function FoundItemsDirectiveController() {
-
-}
+}*/
 
 
 //SERVICE

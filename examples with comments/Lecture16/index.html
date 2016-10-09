@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app='BindingApp'>
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <style> body { font-size: 1.2em; }</style>
+    <title>2-way, 1-way, and 1-time binding</title>
+  </head>
+  <body>
+    <h1>2-way, 1-way, and 1-time binding</h1>
+    <div ng-controller='BindingController'>
+
+      <button ng-click="showNumberOfWatchers()">Log # of Watchers</button>
+      <button ng-click="setFullName()">Set Full Name</button><br>
+
+      <!--1 time binding. To improve the performance of our app, we can define
+      binders that will be removed after the property is initiallized the first
+      time. That is, Angular will remove the watcher for that property-->
+      Full name is: {{ :: fullName }} <br>
+      <button ng-click="logFirstName()">Log First Name</button><br>
+      <button ng-click="logFullName()">Log Full Name</button><br>
+
+      <div>
+        <!--2 way binding. If we type in the textbox the value will update,
+        and if firstName changes insede our controller, the textbox will show the
+        updated value-->
+        <input type="text" ng-model="firstName">
+        <!--1 way binding. If fullName gets updated inside the scope, the value
+        shown will update-->
+        First name is: {{ firstName }} <br>
+      </div>
+    </div>
+  </body>
+</html>

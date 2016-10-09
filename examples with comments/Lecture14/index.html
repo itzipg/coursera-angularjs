@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app='CounterApp'>
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <style> body { font-size: 1.2em; }</style>
+    <title>The Digest Cycle</title>
+  </head>
+  <body>
+    <h1>The Digest Cycle</h1>
+    <div ng-controller='CounterController'>
+      <!--By attaching the ng-model attribute to an input field
+      Angular automatically creates a watcher.-->
+      <button ng-click="showNumberOfWatchers()">
+        Log # of Watchers</button>
+        <input type="text" ng-model="name">
+      <div>
+        <button ng-click="countOnce()">Up Once Counter (once)</button>
+        <button ng-click="upCounter()">Increment Counter</button>
+      </div>
+      <div>
+        <!--By creating an expression with a property of the scope,
+        (we call this interpolating a property)
+        Angular automatically creates a watcher, because it knows that if
+        the property changes, it will have to update the DOM-->
+        Once counter: {{ onceCounter }} <br>
+        Regular counter: {{ counter }}
+      </div>
+    </div>
+  </body>
+</html>

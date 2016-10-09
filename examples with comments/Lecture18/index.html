@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app='ShoppingListApp'>
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <style> body { font-size: 1.2em; }</style>
+    <title>ng-repeat</title>
+  </head>
+  <body>
+    <h1>ng-repeat</h1>
+    <div ng-controller='ShoppingListController'>
+      <!-- Searchable Shopping List: -->
+      <h3>Shopping List:</h3>
+      <!--on the fly declaration of the property "search" that will be used in
+      the filter.
+      Since it's linked to an input field, it's a two-way binding, so as we type
+      in the field, it will get updated and modify our filter-->
+      <input type="text" ng-model="search">
+      <ul>
+        <!--Built in angular filter functionality:
+        ng-repeat="item in shoppingList" like in the previous lecture
+        + "| filter : " +  expression.
+        In this case the expression is a string obtained from an input field-->
+        <li ng-repeat="item in shoppingList | filter : search">{{ item }}</li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="myFirstApp">
+  <head>
+    <meta charset="utf-8">
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+    <title>My first AngularJS App</title>
+  </head>
+  <body>
+    <!--{{name}} cant be resolved in h1 because the controller is only binded to the div-->
+    <h1>My first AngularJS App {{name}}</h1>
+    <div ng-controller="MyFirstController">
+      <!--{{name}} is an expression, and angular looks for it on the scope
+      since the scope is defined in the controller in the js, and the controller
+      is bound to the dib tag, it can be resolved al the div level.
+      We can also reference a function declared in the scope-->
+      {{sayHello()}}
+      <!--We can bind an element of the html to the scope with ng-model.
+      Initially, the input with take the value of the var name declared in the scope.
+      But, if we edit the input, we change the name value, and the expression {{name}}
+      changes too.-->
+      <input type="text" ng-model="name">
+      Inside my input is: {{name}}
+    </div>
+  </body>
+</html>

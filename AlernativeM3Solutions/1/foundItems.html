@@ -1,0 +1,27 @@
+<h2 class="alert" ng-if="ctrl.items.length ==0">Nothing Found</h2>
+<table class="table table-striped" ng-if="ctrl.items.length >0">
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>Short Name</td>
+      <td>Description</td>
+      <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="menuitem in ctrl.items">
+        <td>{{menuitem.name}}</td>
+        <td>{{menuitem.short_name}}</td>
+        <td>{{menuitem.description}}</td>
+        <td><button ng-click="ctrl.onRemove({index: $index});">Don't want this one!</button></td>
+        </tr>
+    </tbody>
+    </table>
+
+
+<!--  <ol>
+  <li ng-repeat="menuitem in ctrl.items">
+    {{menuitem.name}} - {{menuitem.short_name}} - {{menuitem.description}}
+    
+  </li>
+</ol> -->

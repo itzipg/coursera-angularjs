@@ -1,0 +1,9 @@
+<ul>
+  <li ng-repeat="item in $ctrl.items">
+    <h4>{{item.name}}</h4>
+      {{item.description}}
+      <p>
+        <span ng-if=item.price_small> {{item.small_portion_name}}: {{item.price_small}}$; {{item.large_portion_name}}: </span><span>{{item.price_large}}$</span>
+      </p>
+  </li>
+</ul>
