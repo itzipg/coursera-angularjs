@@ -10,6 +10,8 @@ function InfoController(info, MenuService, ApiPath) {
   ctrl.basePath = ApiPath;
   ctrl.info = info;
   console.log(ctrl.info);
+  ctrl.logged = MenuService.getLogged();
+  console.log(ctrl.logged);
 }
 
 })();

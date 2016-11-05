@@ -1,12 +1,12 @@
 <div class="container">
-  <div classclass="menu-item-title">
+  <div classclass="menu-item-title" ng-if ="infoCtrl.logged">
     <p> First name: {{infoCtrl.info.name}} </p>
     <p> Last name: {{infoCtrl.info.lastName}} </p>
     <p> Email: {{infoCtrl.info.email}} </p>
     <p> Phone: {{infoCtrl.info.phone}} </p>
     <p> Your favourite dish: </p>
   </div>
-  <div class="menu-item-tile col-md-6">
+  <div class="menu-item-tile col-md-6" ng-if ="infoCtrl.logged">
     <div class="row">
       <div class="col-sm-5">
         <div class="menu-item-photo">
@@ -20,4 +20,8 @@
       </div>
     </div>
     <hr class="visible-xs">
+  </div>
+  <div ng-if ="!infoCtrl.logged" class="menu-item-title">
+    Not Signed Up Yet. <a ui-sref="public.login">Sign up Now!</a>
+  </div>
 </div>

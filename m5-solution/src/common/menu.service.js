@@ -17,6 +17,8 @@ function MenuService($http, ApiPath) {
     favName: '',
     favDescription: ''
   };
+
+  var logged = false;
   service.getCategories = function () {
     return $http.get(ApiPath + '/categories.json').then(function (response) {
       return response.data;
@@ -47,10 +49,15 @@ function MenuService($http, ApiPath) {
 
   service.setInfo = function (user) {
     service.user = user;
+    service.logged = true;
   }
 
   service.getInfo = function (){
     return service.user;
+  }
+
+  service.getLogged = function (){
+    return service.logged;
   }
 }
 
