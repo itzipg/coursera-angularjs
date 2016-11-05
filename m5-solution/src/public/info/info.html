@@ -1,0 +1,23 @@
+<div class="container">
+  <div classclass="menu-item-title">
+    <p> First name: {{infoCtrl.info.name}} </p>
+    <p> Last name: {{infoCtrl.info.lastName}} </p>
+    <p> Email: {{infoCtrl.info.email}} </p>
+    <p> Phone: {{infoCtrl.info.phone}} </p>
+    <p> Your favourite dish: </p>
+  </div>
+  <div class="menu-item-tile col-md-6">
+    <div class="row">
+      <div class="col-sm-5">
+        <div class="menu-item-photo">
+          <div>{{infoCtrl.info.favShortName}}</div>
+          <img class="img-responsive" width="250" height="150" ng-src="{{infoCtrl.basePath}}/images/{{infoCtrl.info.favShortName}}.jpg" alt="{{infoCtrl.info.favName}}">
+        </div>
+      </div>
+      <div class="menu-item-description col-sm-7">
+        <h3 class="menu-item-title">{{infoCtrl.info.favName}}</h3>
+        <p class="menu-item-details">{{infoCtrl.info.favDescription}}</p>
+      </div>
+    </div>
+    <hr class="visible-xs">
+</div>

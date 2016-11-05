@@ -1,0 +1,69 @@
+<h2 id="menu-categories-title" class="text-center">Registration</h2>
+<div class="text-center">
+  Please, enter your personal info to receive our monthly newsletter. <br>
+</div>
+<fieldset class="form">
+  <form name='loginForm' novalidate>
+    <!--First name-->
+    <input  class="form-elem" type="text" name="name" placeholder="First name"
+      ng-model="loginCtrl.user.name"
+      required
+      minlength="2"
+      ng-maxlength="30">
+      <span
+        ng-if="(loginForm.name.$error.minlength || loginForm.name.$error.required) && loginForm.name.$touched">
+        First name must be at least 2 characters long
+      </span>
+      <span ng-if="loginForm.name.$error.maxlength && loginForm.name.$touched">
+        First name must not be longer than 30 characters
+      </span>
+      <br>
+      <!--Last name-->
+    <input class="form-elem" type="text" name="lastName" placeholder="Last name"
+        ng-model="loginCtrl.user.lastName"
+        required
+        minlength="2"
+        ng-maxlength="30">
+        <span
+          ng-if="(loginForm.lastName.$error.minlength || loginForm.lastName.$error.required) && loginForm.lastName.$touched">
+          Last name must be at least 2 characters long
+        </span>
+        <span ng-if="loginForm.lastName.$error.maxlength && loginForm.lastName.$touched">
+          Last name must not be longer than 30 characters
+        </span>
+        <br>
+    <!--Email-->
+    <input class="form-elem" type="email" name="email" placeholder="Email"
+      ng-model="loginCtrl.user.email"
+      required>
+      <span ng-if="loginForm.email.$invalid && loginForm.email.$touched">
+        Must be a valid email address: handle@domain format
+      </span>
+      <br>
+    <!--Phone-->
+    <input class="form-elem" type="text" name="phone" placeholder="Phone ###-###-####"
+      ng-model="loginCtrl.user.phone"
+      pattern="(\d{3})-(\d{3})-(\d{4})">
+      <span ng-if="loginForm.phone.$invalid && loginForm.phone.$touched">
+        Phone must be in the format ###-###-####.
+      </span>
+      <br>
+      <!--Favourite dish number-->
+      <input class="form-elem" type="text" name="favShortName" placeholder="Your favourite dish"
+        ng-model="loginCtrl.user.favShortName"
+        minlength="2"
+        ng-maxlength="4"
+        required>
+        <span ng-if="((loginForm.favShortName.$error.minlength || loginForm.favShortName.$error.maxlength) &&
+                      loginForm.favShortName.$touched) || (loginCtrl.querySent && !loginCtrl.favFound)">
+          No such menu number exists. <br>
+          Look up our <a ui-sref="public.menu">menu</a> again.
+        </span>
+        <br>
+
+    <button class="form-elem"
+      ng-disabled="loginForm.$invalid"
+      ng-click="loginCtrl.submit()">Submit</button>
+      <span ng-if="loginCtrl.querySent && loginCtrl.favFound">Your information has been saved.</span>
+  </form>
+</fieldset>
